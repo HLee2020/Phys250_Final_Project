@@ -16,13 +16,13 @@ def random_lattice(y, x):
 def plotlattice(lattice, x, y, count, orient):
     plt.imshow(lattice, origin="lower", cmap='Blues')
     if orient == 0:
-        plt.arrow(x, y-0.5, 0, 0.1, head_width=0.5, color="k")
+        plt.arrow(x, y-0.5, 0, 0.1, head_width=0.5, color="red")
     elif orient == 1:
-        plt.arrow(x-0.5, y, 0.1, 0, head_width=0.5, color="k")
+        plt.arrow(x-0.5, y, 0.1, 0, head_width=0.5, color="red")
     elif orient == 2:
-        plt.arrow(x, y+0.5, 0, -0.1, head_width=0.5, color="k")
+        plt.arrow(x, y+0.5, 0, -0.1, head_width=0.5, color="red")
     elif orient == 3:
-        plt.arrow(x+0.5, y, -0.1, 0, head_width=0.5, color="k")
+        plt.arrow(x+0.5, y, -0.1, 0, head_width=0.5, color="red")
     plt.xlabel("X Coordinate")
     plt.ylabel("Y Coordinate")
     plt.title("Lattice Visualization, Iteration Number: {}".format(count))
@@ -92,7 +92,3 @@ def ant_walk(lattice, x, y, orient, iter):
         return lattice, x, y, past_orient, count
     else:
         return lattice, x, y, orient, count
-
-test = normal_lattice(101, 101, -1)
-lattice, x, y, orient, count = ant_walk(test, 50, 50, 0, 100000)
-plotlattice(lattice, x, y, count, orient)
