@@ -12,6 +12,6 @@ lattice = normal_lattice(101, 101, -1)
 lattice, x, y, orient, count = ant_walk(lattice, 50, 50, 0, 10100)
 plotlattice(lattice, x, y, count, orient)
 
-lattice = normal_lattice(101, 101, 1)
-lattice, x, y, orient, count = ant_walk(lattice, 50, 50, 0, 10100)
+lattice = normal_lattice(101, 101, -1)
+lattice, x, y, orient, count = ant_walk(lattice, 50, 50, 0, 100000)
 plotlattice(lattice, x, y, count, orient)
