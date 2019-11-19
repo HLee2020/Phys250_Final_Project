@@ -13,7 +13,7 @@ def normal_lattice(y, x, value):
 def random_lattice(y, x):
     return rng.choice((-1, 1), (y, x))
 
-def plotlattice(lattice, x, y, count, orient):
+def plotlattice(lattice, x, y, orient, count):
     plt.imshow(lattice, origin="lower", cmap='Blues')
     if orient == 0:
         plt.arrow(x, y-0.5, 0, 0.1, head_width=0.5, color="red")
@@ -28,6 +28,7 @@ def plotlattice(lattice, x, y, count, orient):
     plt.title("Lattice Visualization, Iteration Number: {}".format(count))
     plt.colorbar()
     plt.show()
+    # plt.savefig("ant_walk_"+str(count)+".svg")
 
 def orientated_step(orient, x, y):
     if orient == 0:
@@ -92,3 +93,14 @@ def ant_walk(lattice, x, y, orient, iter):
         return lattice, x, y, past_orient, count
     else:
         return lattice, x, y, orient, count
+
+def ant_walk_history(lattice, x, y, orient, iter):
+    x_history = [x]
+    y_history = [y]
+    count = 0
+    while count < iter and orient != None:
+        lattice, x, y, orient = ant_step(lattice, x, y, orient)
+        x_history.append(x)
+        y_history.append(y)
+        count += 1
+    return lattice, x, y, orient, count, x_history, y_history
