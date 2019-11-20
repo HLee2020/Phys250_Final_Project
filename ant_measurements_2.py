@@ -16,9 +16,9 @@ def distance_trend(x_init, y_init, lattice_init, steps):
     # plotlattice(lattice_final, x_final, y_final, orient_final, count)
     return count_list, distance_list
 
-lattice = random_lattice(201, 201)
-lattice, x, y, orient, count = ant_walk(lattice, 100, 100, 0, 100000000)
-plotlattice(lattice, x, y, orient, count)
+# lattice = random_lattice(201, 201)
+# lattice, x, y, orient, count = ant_walk(lattice, 100, 100, 0, 100000000)
+# plotlattice(lattice, x, y, orient, count)
 
 def checker_lattice(y, x):
     '''only good with odd number of y and x'''
@@ -36,6 +36,27 @@ def checker_lattice(y, x):
                 count += 1
     # print(lattice)
     return lattice
+
+
+# lattice = checker_lattice(101, 101)
+# steps = 5000
+# counts, distance = distance_trend(50, 50, lattice, steps)
+# plt.plot(counts, distance, marker=".")
+# plt.title("Distance to Number of Steps for Checkered Initial Lattice")
+# plt.ylabel("Distance from Starting Origin")
+# plt.xlabel("Number of Steps Taken")
+# plt.savefig("counts_distance_checker_"+str(counts)+".svg")
+# plt.show()
+
+lattice = random_lattice(101, 101)
+steps = 5000
+counts, distance = distance_trend(50, 50, lattice, steps)
+plt.plot(counts, distance, marker=".")
+plt.title("Distance to Number of Steps for Random Initial Lattice")
+plt.ylabel("Distance from Starting Origin")
+plt.xlabel("Number of Steps Taken")
+plt.savefig("counts_distance_random_"+str(counts)+".svg")
+plt.show()
 
 # lattice = checker_lattice(101, 101)
 # lattice, x, y, orient, count = ant_walk(lattice, 50, 50, 0, 10000)

@@ -16,15 +16,21 @@ def distance_trend(x_init, y_init, lattice_init, steps):
     # plotlattice(lattice_final, x_final, y_final, orient_final, count)
     return count_list, distance_list
 
-lattice = normal_lattice(101, 101, -1)
-steps = 5000
-counts, distance = distance_trend(50, 50, lattice, steps)
-plt.plot(counts, distance, marker=".")
-plt.title("Quantifying Langton's Ant Behavior Up to {}".format(steps))
-plt.ylabel("Distance from Starting Origin")
-plt.xlabel("Number of Steps Taken")
-plt.savefig("counts_distance_"+str(steps)+".svg")
-plt.show()
+# lattice = normal_lattice(5, 5, -1)
+# # lattice[2][2] *= -1
+# plotlattice(lattice, 2, 2, 0, 0)
+# lattice, x, y, orient, count = ant_walk(lattice, 2, 2, 0, 1)
+# plotlattice(lattice, x, y, orient, count)
+
+# lattice = normal_lattice(101, 101, -1)
+# steps = 5000
+# counts, distance = distance_trend(50, 50, lattice, steps)
+# plt.plot(counts, distance, marker=".")
+# plt.title("Quantifying Langton's Ant Behavior Up to {}".format(steps))
+# plt.ylabel("Distance from Starting Origin")
+# plt.xlabel("Number of Steps Taken")
+# plt.savefig("counts_distance_"+str(steps)+".svg")
+# plt.show()
 
 # lattice = normal_lattice(101, 101, -1)
 # lattice, x, y, orient, count = ant_walk(lattice, 50, 50, 0, 970)

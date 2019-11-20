@@ -14,7 +14,7 @@ def random_lattice(y, x):
     return rng.choice((-1, 1), (y, x))
 
 def plotlattice(lattice, x, y, orient, count):
-    plt.imshow(lattice, origin="lower", cmap='Blues')
+    plt.imshow(lattice, origin="lower", cmap='Blues', vmin=-1, vmax=1)
     if orient == 0:
         plt.arrow(x, y-0.5, 0, 0.1, head_width=0.5, color="red")
     elif orient == 1:
@@ -27,8 +27,8 @@ def plotlattice(lattice, x, y, orient, count):
     plt.ylabel("Y Coordinate")
     plt.title("Lattice Visualization, Iteration Number: {}".format(count))
     plt.colorbar()
+    plt.savefig("ant_walk_"+str(count)+".svg")
     plt.show()
-    # plt.savefig("ant_walk_"+str(count)+".svg")
 
 def orientated_step(orient, x, y):
     if orient == 0:
@@ -57,7 +57,7 @@ def edge_check(lattice, x, y, orient):
     return True
 
 def ant_step(lattice, x, y, orient):
-    if lattice[y][x] == 1:
+    if lattice[y][x] == -1:
         if orient == 3:
             orient = 0
         else:
