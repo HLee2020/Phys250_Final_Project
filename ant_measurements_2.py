@@ -37,7 +37,6 @@ def checker_lattice(y, x):
     # print(lattice)
     return lattice
 
-
 # lattice = checker_lattice(101, 101)
 # steps = 5000
 # counts, distance = distance_trend(50, 50, lattice, steps)
